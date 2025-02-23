@@ -4,17 +4,19 @@
 /* variable */
 
 :root {
-  --background-color: #080808;
+  --background-color: black;
+  --bg-color-2: rgb(29, 31, 45);
+  --bg-color-3: rgb(68, 68, 68);
   --font-color-1: #EDEDED;
-  --tertiary: #44444493;
+  --text-shadow: rgb(114, 62, 62);
+  --tertiary: red;
   --transition: all 0.5s ease-in-out;
   --radius-100: 100px;
   --transition: all 0.3s ease;
-  --box-shadow-btn:inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.3),
-                   inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
-                   inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.5),
-                   0 3rem 3rem rgba(0, 0, 0, 0.3),
-                   0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+  --box-shadow-btn:inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.01),
+                   inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.034),
+                   inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.1),
+                   0 1rem 1rem -0.6rem rgba(42, 1, 1, 0.8);
   --btn-size: 0.7rem 1.5rem;
   /*********inside btn *********/
   --radius-inside: 8px;
@@ -26,26 +28,24 @@
                                     rgba(0, 0, 0, 0) 100%
                                    );
 /*******************************btn hover*****************************/
---hover-bxs-btn:    inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.4),
-                    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
-                    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.7),
-                    0 3rem 3rem rgba(0, 0, 0, 0.3),
-                    0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+--hover-bxs-btn:    inset 0 0.3rem 0.5rem var(--tertiary),
+                    inset 0 -0.1rem 0.3rem var(--tertiary),
+                    inset 0 -0.4rem 0.9rem var(--tertiary),
+                    0 .1rem .3rem var(--tertiary),
+                    0 .1rem .1rem -0.6rem var(--tertiary);
 /*******************************btn active*****************************/
---active-bxs-btn:   inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.5),
-                    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.8),
-                    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.4),
-                    0 3rem 3rem rgba(0, 0, 0, 0.3),
-                    0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+--active-bxs-btn:   inset 0 0.3rem 0.5rem var(--tertiary),
+                    inset 0 -0.1rem 0.3rem var(--tertiary),
+                    inset 0 -0.4rem 0.9rem var(--tertiary),
+                    0 .5rem 1rem var(--tertiary),
+                    0 1rem 1rem -10.6rem var(--tertiary);
 /*******************************aside*****************************/
---aside-btn-box-shadow: inset 0 0.1rem 0.4rem rgba(255, 255, 255, 0.3),
-                        inset 0 -0.1rem 0.1rem rgba(0, 0, 0, 0.7),
-                        inset 0 -0.2rem 0.4rem rgba(255, 255, 255, 0.5),
-                        0 .5rem .5rem rgba(0, 0, 0, 0.3),
-                        0 .1rem .1rem -1rem rgba(0, 0, 0, 0.8);
+--aside-btn-box-shadow: inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.01),
+                        inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.034),
+                        inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.1),
+                        0 1rem 1rem -0.6rem rgba(42, 1, 1, 0.8);
 /****************************** glass ********************************/
 --glass-backdrop-filter: blur(13px) saturate(200%);
---glass-webkit-backdrop-filter: blur(13px) saturate(200%);
 --glass-bg: rgba(68, 68, 68, 0.51);
 --glass-border-radius: 12px;
 --glass-border: 1px solid rgba(209, 213, 219, 0.3);
@@ -59,12 +59,14 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  caret-color: red;
 }
 
 img,
 figure,
 video {
     max-width: 100%;
+    max-height: 100%;
     object-fit: cover;
 }
 
@@ -74,7 +76,7 @@ a {
 }
 
 a:hover {
-  color:#FF4500;
+  color:var(--tertiary);
 }
 
 
@@ -85,9 +87,9 @@ ol {
 
 
 body {
-  background-image: url(../img/pexels-steve-12913152.jpg);
-  background-size: contain;
+  background: var(--background-color);
   font-family: "Poppins", sans-serif;
+  color: var(--font-color-1);
 }
 
 button {
@@ -109,12 +111,29 @@ header {
   z-index: 9999;
 }
 
-.logo {
-  width: 2.5rem;
-  height: 3rem;
-  border-radius: 50%;
-  margin-left: 10px;
+.logo-section {
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.logo{
+  font-size: 5rem;
+  font-family: "Rubik Dirt", serif;
+  color: var(--tertiary);
+}
+
+main .logo-section {
+  height: 20rem;
+  
+}
+
+.logo:hover {
+  text-shadow: 10px 10px 20px rgb(241, 7, 7);
+  transform: rotateY(180deg);
+}
+
 
 .nav {
   display: flex;
@@ -312,7 +331,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 20rem;
   margin-bottom: 300px;
   
 }
@@ -331,73 +350,73 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
-  
+  gap: 1.2rem;  
 }
 
-h1 {
+.profil .accueil h1, h2 {
   font-size: 50px;
+  color: var(--tertiary);
+  text-shadow: 5px 5px 5px var(--text-shadow);
+  /* background: radial-gradient(circle, var(--tertiary), rgba(255,255,255,1) 15%, var(--tertiary));
+  text-shadow: var(--hover-bxs-btn);
+  background-clip: text;
+  color: transparent; */
 }
+
+h2 {
+  font-size: 30px;
+  padding-bottom: 2rem;
+}
+
 
 
 
 /********************************************************************** profil ******************************************************/
 
-
-.profil {
+main > * {
   font-size: 20px;
-  overflow-y: scroll;
-  height: 45vh;
   width: 70vw;
-  padding: 2% 10%;
-  line-height: 35px;
-  backdrop-filter: var(--glass-backdrop-filter);
-  -webkit-backdrop-filter: var(--glass-webkit-backdrop-filter);
-  background-color: var(--glass-bg);
-  border-radius: var(--glass-border-radius);
-  border: var(--glass-border);
-}
-
-.profil .logo {
-  padding: 50px;
-  width: 250px;
-  height: 250px;
+  line-height: 32px;
+  background-color: var(--background-color);
+  border-radius: var(--radius-inside);
 }
 
 
 /********************************************************************** scroll ******************************************************/
 
-.contact::-webkit-scrollbar-thumb {
-  background: linear-gradient(27deg, #ffffff 0%, #a39ea134 43.29%, #7f808349 83.33%);
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--tertiary), var(--background-color), var(--tertiary));
   border-radius: 10px;
 }
 
-.contact::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 10px;
 }
 
+.catag::-webkit-scrollbar {
+  display: none;
+}
 
-.contact::-webkit-scrollbar-button:vertical:decrement {
+/* ::-webkit-scrollbar-button:vertical:decrement {
   background-image: url(../img/icons/chevron-up-solid.svg);
   background-repeat: no-repeat;
 }
-.contact::-webkit-scrollbar-button:vertical:increment {
+::-webkit-scrollbar-button:vertical:increment {
   background-image: url(../img/icons/chevron-down-solid.svg);
   background-repeat: no-repeat;
-}
+} */
   
 
 
 /********************************************************************** competence ******************************************************/
 
 .competence {
-  width: 100vw;
-  height: 40vh;
+  height: 50vh;
   position: relative;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* text-align: center; */
+  /* display: flex; */
+  /* align-items: center;
+  justify-content: center; */
   perspective: 1000px;
 }
 
@@ -428,7 +447,6 @@ h1 {
   border-radius: var(--glass-border-radius);
   transition: transform 0.5s ease;
   backdrop-filter: var(--glass-backdrop-filter);
-  -webkit-backdrop-filter: var(--glass-webkit-backdrop-filter);
   background-color: var(--glass-bg);
   border-radius: var(--glass-border-radius);
   border: var(--glass-border);
@@ -484,12 +502,57 @@ h1 {
 
 /******************************************************** project ***************************************************/
 
- .portfolio{
-   position: relative;
-   display: block;
-   height: 70vh;
-   width: 70vw;
+ .portfolio {
+   background-color: transparent;
  }
+
+ .projects {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  row-gap: 5rem;
+  column-gap: 0.5rem;
+  justify-content: center;
+}
+
+.catag {
+  border-radius: var(--glass-border-radius);
+  display: none;
+  transition: all 0.5s ease;
+  position: relative;
+  gap: .5rem;
+  overflow-x: scroll;
+  background-color: var(--background-color);
+  scroll-snap-type: y mandatory;
+}
+.catag img {
+  scroll-snap-align: center;
+}
+.pics{
+ position: relative;    /* -+ */
+}
+
+
+.pics::after, .pics::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle) ,transparent 30%, var(--tertiary));
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  padding: 10px;
+  border-radius: var(--radius-inside);
+  animation: 3s spin linear infinite;
+}
+
+.pics::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+
 
  [type="radio"]:checked,
  [type="radio"]:not(:checked){
@@ -503,15 +566,12 @@ h1 {
    display: inline-block;
    width: 3rem;
    height: 3rem;
-   border: 3px solid red;
+   box-shadow: var(--hover-bxs-btn);
    background-size: cover;
-   -webkit-transition: all 0.2s ease;
    transition: all 0.2s ease;
-   background-image: url('../img/pexels-steve-29586675.jpg');
+   background-image: url('../img/projects/iphon\ 14\ 1.png');
    animation: border-transform 6s linear infinite alternate forwards;
-     -webkit-animation-play-state: paused;
-     -moz-animation-play-state: paused;
-     animation-play-state: paused;
+   animation-play-state: paused;
  }
  .checkbox.scnd + label{
    background-image: url('../img/pexels-steve-29586672.jpg');
@@ -524,11 +584,9 @@ h1 {
  }
  
  .checkbox:checked + label{
-   box-shadow: 0 8px 25px 0 rgb(232, 7, 7);
+   box-shadow: var(--active-bxs-btn);
    transform: scale(1.3);
-     -webkit-animation-play-state: running;
-     -moz-animation-play-state: running;
-     animation-play-state: running;
+   animation-play-state: running;
  }
  @keyframes border-transform{
    0%,100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; } 
@@ -540,62 +598,41 @@ h1 {
    84% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; } 
  }
  
- .pics {
-   padding-top: 60vh;
+
+ .checkbox.frst:checked ~ .pics .catag:nth-child(1) {
+   display: flex;
  }
- 
-.projects img {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 80%;
-   border: 5px solid red;
-   border-radius: var(--glass-border-radius);
-   opacity: 0;
-   -webkit-transition: all 0.5s ease;
-   transition: all 0.5s ease;
+ .checkbox.scnd:checked ~ .pics .catag:nth-child(2) {
+  display: flex;
  }
- 
- .checkbox.frst:checked ~ .projects img:nth-child(1) {
-   opacity: 1;
+ .checkbox.thrd:checked ~ .pics .catag:nth-child(3) {
+  display: flex;
  }
- .checkbox.scnd:checked ~ .projects img:nth-child(2) {
-   opacity: 1;
+ .checkbox.foth:checked ~ .pics .catag:nth-child(4) {
+  display: flex;
  }
- .checkbox.thrd:checked ~ .projects img:nth-child(3) {
-   opacity: 1;
- }
- .checkbox.foth:checked ~ .projects img:nth-child(4) {
-   opacity: 1;
- }
- 
- 
- 
- 
- 
- /* @media (max-width: 767px) {
-   .pics {
-     padding-top: 340px;
-   }
-   .projects img {
-     height: 300px;
-     font-size: 13px;
-     letter-spacing: 1px;
-   }
- }
- 
- @media (max-width: 575px) {
-   .pics {
-     padding-top: 240px;
-   }
-   .projects img {
-     height: 200px;
-   }
- } */
 
 
 
+ @property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+ 
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+ 
+
+
+ 
 
 
 
@@ -604,21 +641,6 @@ h1 {
 
 /*******************************************contact ********************************************************/
 
-section.contact {
-  font-size: 20px;
-  overflow-y: scroll;
-  height: 45vh;
-  width: 70vw;
-  padding: 7.7% 10%;
-  line-height: 35px;
-  margin-bottom: 50px;
-  backdrop-filter: var(--glass-backdrop-filter);
-  -webkit-backdrop-filter: var(--glass-webkit-backdrop-filter);
-  background-color: var(--glass-bg);
-  border-radius: var(--glass-border-radius);
-  border: var(--glass-border);
-}
-
 
 
 .form {
@@ -626,7 +648,7 @@ section.contact {
   display: grid;
   flex-direction: column;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   column-gap: 30px;
   text-align: left;
   margin-top: 2rem;
@@ -646,6 +668,13 @@ section.contact {
   background-repeat: no-repeat;
   background-position: right;
   background-position-x: 12px;
+  color: var(--background-color);
+}
+.form input:focus, .form textarea:focus {
+  border: 5px solid var(--tertiary);
+  box-shadow: var(--hover-bxs-btn);
+  background-color: var(--background-color);
+  color: var(--font-color-1);
 }
 
 #name {
@@ -668,8 +697,14 @@ section.contact {
   padding: 15px;
 }
 
-h2 {
-  padding-bottom: 2rem;
+
+
+.form button {
+  grid-row: -1;
+  grid-column: 2 span;
+  align-self: center;
+  justify-self: center;
+  padding: auto 3rem;
 }
 
 
