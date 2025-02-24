@@ -45,7 +45,7 @@ inner.addEventListener("mouseleave", () => {
 cards.forEach((card) => {
   card.addEventListener("mouseenter", () => {
     // Move the card closer and scale it up
-    card.style.transform = `${card.dataset.originalTransform} translateZ(100px) translateY(-50px) scale(1.2)`;
+    card.style.transform = `${card.dataset.originalTransform} translateZ(100px) translateY(-10px) scale(1.8)`;
     // card.style.fontSize = "32px"; // Increase font size for better readability
     // card.style.zIndex = "10";
     // card.style.filter = "none"; // Ensure no blur is applied

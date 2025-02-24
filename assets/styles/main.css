@@ -514,19 +514,7 @@ main > * {
   justify-content: center;
 }
 
-.catag {
-  border-radius: var(--glass-border-radius);
-  display: none;
-  transition: all 0.5s ease;
-  position: relative;
-  gap: .5rem;
-  overflow-x: scroll;
-  background-color: var(--background-color);
-  scroll-snap-type: y mandatory;
-}
-.catag img {
-  scroll-snap-align: center;
-}
+
 .pics{
  position: relative;    /* -+ */
 }
@@ -550,6 +538,35 @@ main > * {
 .pics::before {
   filter: blur(1.5rem);
   opacity: 0.5;
+}
+
+.catag {
+  border-radius: var(--glass-border-radius);
+  display: none;
+  transition: all 0.5s ease;
+  position: relative;
+  width: 70vw;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 2rem 0;
+}
+.btn-slider {
+  background: transparent;
+  padding: 30px 40px;
+  color: var(--font-color-1);
+  border-radius: var(--radius-100);
+}
+.btn-slider:hover {
+  box-shadow: var(--hover-bxs-btn);
+}
+.btn-slider:active {
+  box-shadow: var(--active-bxs-btn);
+}
+
+.fa-chevron-right, .fa-chevron-left {
+  font-size: 3rem;
+  transition: transform 0.2s ease;
 }
 
 
@@ -611,6 +628,7 @@ main > * {
  .checkbox.foth:checked ~ .pics .catag:nth-child(4) {
   display: flex;
  }
+
 
 
 

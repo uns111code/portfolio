@@ -3,16 +3,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script
-      src="https://kit.fontawesome.com/fdc9ecfad2.js"
-      crossorigin="anonymous"
-    ></script>
     <link rel="stylesheet" href="assets/styles/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap"rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/fdc9ecfad2.js"crossorigin="anonymous"></script>
     <script type="module" src="assets/scripts/script.js" defer></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap"
-      rel="stylesheet"
-    />
+    <script src="assets/scripts/btn-slider.js" defer></script>
   </head>
   <body>
     <header>
@@ -180,7 +175,13 @@
           <input class="checkbox foth" type="radio" name="slider" id="slider-4"/>
           <label for="slider-4"></label>
           <div class="pics">
-              <div class="catag swiper-wrapper">
+              
+              <div class="catag">
+                <button class="btn-slider" onclick="ChangeSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                <a href=""><img src="assets/img/projects/1.png" class="swiper-slide" alt="project-picture" id="slide"></a>
+                <button class="btn-slider" onclick="ChangeSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+              <!-- <div class="catag swiper-wrapper">
                 <img src="assets/img/projects/iphon 14 1.png" class="swiper-slide" alt="project-picture">
                 <img src="assets/img/projects/iphon 14 2.png" class="swiper-slide" alt="project-picture">
                 <img src="assets/img/projects/iphon 14 3.png" class="swiper-slide" alt="project-picture">
@@ -209,17 +210,8 @@
                 <img src="assets/img/projects/iphon 14 8.png" class="swiper-slide" alt="project-picture">
                 <img src="assets/img/projects/iphon 14 12.png" class="swiper-slide" alt="project-picture">
                 <img src="assets/img/projects/iphon 14 17.png" class="swiper-slide" alt="project-picture">
-              </div>
-              <div class="catag swiper-wrapper">
-                <img src="assets/img/projects/iphon 14 1.png" class="swiper-slide" alt="project-picture">
-                <img src="assets/img/projects/iphon 14 2.png" class="swiper-slide" alt="project-picture">
-                <img src="assets/img/projects/iphon 14 3.png" class="swiper-slide" alt="project-picture">
-                <img src="assets/img/projects/iphon 14 5.png" class="swiper-slide" alt="project-picture">
-                <img src="assets/img/projects/iphon 14 6.png" class="swiper-slide" alt="project-picture">
-                <img src="assets/img/projects/iphon 14 8.png" class="swiper-slide" alt="project-picture">
-                <img src="assets/img/projects/iphon 14 12.png" class="swiper-slide" alt="project-picture">
-                <img src="assets/img/projects/iphon 14 17.png" class="swiper-slide" alt="project-picture">
-              </div>
+              </div> -->
+              
           </div>
         </div>
       </section>
@@ -262,9 +254,9 @@
     </main>
     <footer>
       <h4>© Copyright 2025 | Younes Amini | Tous droits réservés</h4>
-      <div>
+      <!-- <div>
         <a href="">Mentions légales</a>
-      </div>
+      </div> -->
     </footer>
   </body>
 </html>
