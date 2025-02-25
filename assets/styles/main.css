@@ -59,8 +59,11 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  caret-color: red;
+  caret-color: var(--tertiary);
+
 }
+
+
 
 img,
 figure,
@@ -107,15 +110,21 @@ header {
   align-items: center;
   position: fixed;
   width: 100vw;
-  height: 100px;
+  height: 6rem;
   z-index: 9999;
+  top: 0;
+  left: 0;
 }
 
 .logo-section {
-  height: 6rem;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.profil .logo-section {
+  height: 20rem;
 }
 
 .logo{
@@ -124,20 +133,16 @@ header {
   color: var(--tertiary);
 }
 
-main .logo-section {
-  height: 20rem;
-  
-}
 
 .logo:hover {
   text-shadow: 10px 10px 20px rgb(241, 7, 7);
   transform: rotateY(180deg);
 }
 
-
 .nav {
   display: flex;
-  gap: 2rem;
+  justify-content: space-between;
+  gap: 35px;
 }
 
 
@@ -326,14 +331,11 @@ aside {
 
 main {
   text-align: center;
-  position: relative;
-  top: calc(100px + 10vh);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20rem;
-  margin-bottom: 300px;
-  
+  margin: 10rem 0 20rem 0;
 }
 
  
@@ -341,12 +343,7 @@ main {
 
 .accueil {
   height: 40vh;
-  border-radius: var(--radius-inside);
-  /*************center the text*************/
-  /*
-                                              padding: calc(10% - 70px);
-                                              line-height: 40px;
-  */   /* or */
+  border-radius: var(--radius-inside); 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -357,10 +354,7 @@ main {
   font-size: 50px;
   color: var(--tertiary);
   text-shadow: 5px 5px 5px var(--text-shadow);
-  /* background: radial-gradient(circle, var(--tertiary), rgba(255,255,255,1) 15%, var(--tertiary));
-  text-shadow: var(--hover-bxs-btn);
-  background-clip: text;
-  color: transparent; */
+  line-height: 3rem;
 }
 
 h2 {
@@ -740,12 +734,23 @@ main > * {
 
 footer {
   text-align: center;
-  margin-bottom: 1rem;
 }
 
 
 
-
+@media screen and (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  .form  {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;;
+  }
+  #message {
+    width: 100%;
+  }
+}
 
 
 

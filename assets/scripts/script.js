@@ -13,7 +13,7 @@
 // // inner.addEventListener('mouseenter', () => {
 // //     inner.style.animationPlayState = 'paused'; // Change parent color on hover
 // //   });
-  
+
 // //   inner.addEventListener('mouseleave', () => {
 // //       inner.style.animationPlayState = 'running'; // Reset parent color when leaving hover
 // //   });
