@@ -335,7 +335,7 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 20rem;
-  margin: 10rem 0 20rem 0;
+  margin: 10rem 0;
 }
 
  
@@ -369,11 +369,12 @@ h2 {
 
 main > * {
   font-size: 20px;
-  width: 70vw;
+  max-width: 70vw;
   line-height: 32px;
   background-color: var(--background-color);
   border-radius: var(--radius-inside);
 }
+
 
 
 /********************************************************************** scroll ******************************************************/
@@ -407,11 +408,13 @@ main > * {
 .competence {
   height: 50vh;
   position: relative;
+  perspective: 1000px;
+
   /* text-align: center; */
   /* display: flex; */
   /* align-items: center;
   justify-content: center; */
-  perspective: 1000px;
+  
 }
 
 .inner {
@@ -448,10 +451,7 @@ main > * {
   align-items: center;
   padding: 0 10px;
 }
-/* .card img {
-  width: inherit;
-  height: inherit;
-} */
+
 
 /* Card-specific positioning and colors */
 .one {
@@ -504,7 +504,7 @@ main > * {
   display: flex;
   flex-wrap: wrap-reverse;
   row-gap: 5rem;
-  column-gap: 0.5rem;
+  column-gap: .5%;
   justify-content: center;
 }
 
@@ -545,6 +545,8 @@ main > * {
   background-color: var(--background-color);
   padding: 2rem 0;
 }
+
+
 .btn-slider {
   background: transparent;
   padding: 30px 40px;
@@ -580,7 +582,7 @@ main > * {
    box-shadow: var(--hover-bxs-btn);
    background-size: cover;
    transition: all 0.2s ease;
-   background-image: url('../img/projects/iphon\ 14\ 1.png');
+   background-image: url('../img/projects/1.png');
    animation: border-transform 6s linear infinite alternate forwards;
    animation-play-state: paused;
  }
@@ -737,18 +739,88 @@ footer {
 }
 
 
+.menu {
+  visibility: hidden;
+  border-radius: var(--radius-inside);
+}
+
+.menu span, 
+.menu span::before, 
+.menu span::after {
+  content: "";
+  width: 2rem;
+  height: 0.2rem;
+  background-color: var(--tertiary);
+  position: relative;
+  border-radius: var(--radius-inside);
+  transition: all 0.3s ease-in;
+  display: block;
+}
+
+.menu span::before {
+  position: absolute;
+  top: -0.5rem;
+}
+
+.menu span::after {
+  position: absolute;
+  top: 0.5rem;
+}
 
 @media screen and (max-width: 768px) {
+  header {
+    position: relative;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+  }
+  .menu {
+    visibility: visible;
+  }
   .nav {
     display: none;
   }
+ 
   .form  {
     display: flex;
     flex-direction: column;
-    row-gap: 2rem;;
+    row-gap: 2rem;
+    height: 100vh;
   }
   #message {
     width: 100%;
+  }
+
+  .competence {
+    width: 99vw;
+    left: -70px;
+  }
+
+  .catag {
+    height: 50vh;
+    position: relative;
+    padding: 0;
+  }
+
+  .catag img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .btn-slider {
+    position: absolute;
+  }
+  .btn-slider:first-child {
+    left: -2.2rem;
+  }
+  .btn-slider:last-child {
+    right: -2.2rem;
+  }
+  .btn-slider:active{
+    box-shadow: none;
+  }
+  .btn-slider:hover {
+    box-shadow: none;
+    color: var(--tertiary);
   }
 }
 
