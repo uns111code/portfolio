@@ -742,6 +742,7 @@ footer {
 .menu {
   visibility: hidden;
   border-radius: var(--radius-inside);
+  background: transparent;
 }
 
 .menu span, 
@@ -767,7 +768,34 @@ footer {
   top: 0.5rem;
 }
 
+.menu.active span {
+  background: transparent;
+}
+
+.menu.active span::before,
+.menu.active span::after {
+  top: 0;
+}
+
+.menu.active span::before {
+  transform: rotate(45deg);
+}
+
+.menu.active span::after {
+  transform: rotate(-45deg);
+}
+
+
+
 @media screen and (max-width: 768px) {
+  aside {
+    top: 75vh;
+  }
+
+  main {
+    overflow-x: hidden;
+  }
+
   header {
     position: relative;
     justify-content: space-between;
@@ -778,6 +806,18 @@ footer {
   }
   .nav {
     display: none;
+    background-color: var(--background-color);
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    transition: all 30s ease-in;
+    height: 40vh;
+    gap: 10;
+  }
+  .show-nav{
+    display: flex;
   }
  
   .form  {
@@ -794,6 +834,7 @@ footer {
     width: 99vw;
     left: -70px;
   }
+  
 
   .catag {
     height: 50vh;
