@@ -2,8 +2,8 @@ document.addEventListener("mousemove", function(event) {
     let trace = document.createElement("div");
     trace.classList.add("trace");
     
-    let x = event.clientX;
-    let y = event.clientY;
+    let x = event.pageX;
+    let y = event.pageY;
 
     trace.style.left = `${x}px`;
     trace.style.top = `${y}px`;

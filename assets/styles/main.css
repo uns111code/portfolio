@@ -869,6 +869,18 @@ footer {
 
 
 
+/* Conteneur dédié aux traînées */
+#trails-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Empêche de bloquer les interactions */
+}
+
+
+
 .trace {
   position: absolute;
   width: 6px;
@@ -877,6 +889,7 @@ footer {
   background: red;
   box-shadow: var(--box-shadow-btn);
   animation: fadeOut .5s linear forwards;
+  pointer-events: none; /* Empêche d’interférer avec les éléments */
 }
 
 @keyframes fadeOut {
