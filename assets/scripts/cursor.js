@@ -1,9 +1,9 @@
-document.addEventListener("mousemove", function(event) {
+function update(event) {
     let trace = document.createElement("div");
     trace.classList.add("trace");
     
-    let x = event.pageX;
-    let y = event.pageY;
+    let x = event.pageX || event.touches[0].pageX;
+    let y = event.pageY || event.touches[0].pageY;
 
     trace.style.left = `${x}px`;
     trace.style.top = `${y}px`;
@@ -14,13 +14,8 @@ document.addEventListener("mousemove", function(event) {
     setTimeout(() => {
         trace.remove();
     }, 500);
-});
+};
 
+  document.addEventListener('mousemove',update);
+  document.addEventListener('touchmove',update);
 
-
-
- // Couleur aléatoire
-    // let colors = ["#ff00ff", "#00ffff", "#ffff00", "#ff0000", "#00ff00", "#0000ff"];
-    // let randomColor = colors[Math.floor(Math.random() * colors.length)];
-    // trace.style.boxShadow = `0 0 10px ${randomColor}, 0 0 20px ${randomColor}, 0 0 30px ${randomColor}`;
-    // trace.style.background = randomColor;

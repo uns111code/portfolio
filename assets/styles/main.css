@@ -49,8 +49,11 @@
 --glass-bg: rgba(68, 68, 68, 0.51);
 --glass-border-radius: 12px;
 --glass-border: 1px solid rgba(209, 213, 219, 0.3);
-}
 
+/*************************** light ************************************/
+--cursorX: 50vw;
+--cursorY: 50vh;
+}
 
 
 /************************************ reset ************************************/
@@ -60,8 +63,8 @@
   padding: 0px;
   box-sizing: border-box;
   caret-color: var(--tertiary);
-
 }
+
 
 
 
@@ -93,6 +96,7 @@ body {
   background: var(--background-color);
   font-family: "Poppins", sans-serif;
   color: var(--font-color-1);
+  overflow-x: hidden;
 }
 
 button {
@@ -371,7 +375,7 @@ main > * {
   font-size: 20px;
   max-width: 70vw;
   line-height: 32px;
-  background-color: var(--background-color);
+  background-color: transparent;
   border-radius: var(--radius-inside);
 }
 
@@ -405,24 +409,22 @@ main > * {
 
 /********************************************************************** competence ******************************************************/
 
+
+
 .competence {
   height: 50vh;
   position: relative;
   perspective: 1000px;
-
-  /* text-align: center; */
-  /* display: flex; */
-  /* align-items: center;
-  justify-content: center; */
+  display: flex;
   
 }
 
-.inner {
+ .inner {
   width: 100px;
   height: 150px;
   position: absolute;
   top: 25%;
-  left: calc(50% - (100px / 2) - 2.5px);
+  left: calc(54% - 100px);
   z-index: 2;
   transform-style: preserve-3d;
   animation: rotating 20s linear infinite;
@@ -450,10 +452,24 @@ main > * {
   display: flex;
   align-items: center;
   padding: 0 10px;
+  transform-style: preserve-3d;
 }
 
 
+
+.ul-card-show {
+  display: block;
+}
+
+.ul-card {
+  display: none;
+}
+
+
+
+
 /* Card-specific positioning and colors */
+
 .one {
   transform: rotateY(calc((360deg / 10) * 0)) translateZ(250px);
 }
@@ -523,7 +539,7 @@ main > * {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: -1;
+  z-index: -5;
   padding: 10px;
   border-radius: var(--radius-inside);
   animation: 3s spin linear infinite;
@@ -709,6 +725,7 @@ main > * {
   width: calc(200% + 30px);
   height: 120px;
   padding: 15px;
+  resize: none;
 }
 
 
@@ -866,7 +883,7 @@ footer {
 }
 
 
-
+/******************************************************************* cursor  ******************************************/
 
 
 /* Conteneur dédié aux traînées */
@@ -899,12 +916,39 @@ footer {
   }
   to {
       opacity: 0;
-      transform: scale(8);
+      transform: scale(10);
   }
 }
 
 
+/*************************************************************** light ******************************************/
 
+.light {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  pointer-events: none;
+  background: black;
+}
+.el {
+  position:fixed;
+  top: 0;
+  background: red;
+  width: 100vw;
+  height: 100vh;
+  mask:
+    radial-gradient(circle at 50% 50%, rgb(241, 2, 2) 2px, transparent 2.5px) 50% 50% / 20px 20px,
+    url("https://assets.codepen.io/605876/noise-mask.png");
+  mask-composite: intersect;
+  animation: flicker 20s infinite linear;
+  z-index: -1;
+}
+@keyframes flicker {
+  to {
+    mask-position: 50% 50%, 0 50%;
+  }
+}
 
 
 
