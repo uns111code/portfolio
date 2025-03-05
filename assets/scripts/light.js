@@ -17,7 +17,7 @@ function update(e){
 
     setTimeout(() => {
         light.style.background = "black";
-    }, 1200);
+    }, 3000);
 
   }
   

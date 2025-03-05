@@ -409,103 +409,64 @@ main > * {
 
 /********************************************************************** competence ******************************************************/
 
-
-
-.competence {
-  height: 50vh;
+.banner {
+  margin-top: 10rem;
+  height: 40vh;
+  text-align: center;
   position: relative;
-  perspective: 1000px;
-  display: flex;
-  
+  perspective: 1000px;   /* if you use perspective here then you don't need to use it in animation*/
+
+  .slider {
+    position: relative;
+    width: 100px;
+    height: 150px;
+    top: 10%;
+    left: calc(54% - 100px);
+    transform-style: preserve-3d;
+    animation: autoRun 20s infinite linear;
+
+    .item {
+        position: absolute;
+        inset: 0 0 0 0;
+        transform: rotateY(calc((360deg / var(--quantity)) * var(--position))) translateZ(250px);
+        border-radius: var(--glass-border-radius);
+        transition: transform 0.5s ease;
+        backdrop-filter: var(--glass-backdrop-filter);
+        background-color: var(--glass-bg);
+        border-radius: var(--glass-border-radius);
+        border: var(--glass-border);
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        will-change: transform;
+        perspective: 1px;
+        ul {
+          transform: perspective(1px) translateZ(0);
+          backface-visibility: hidden; 
+      }
+    }
+  }
 }
 
- .inner {
-  width: 100px;
-  height: 150px;
-  position: absolute;
-  top: 25%;
-  left: calc(54% - 100px);
-  z-index: 2;
-  transform-style: preserve-3d;
-  animation: rotating 20s linear infinite;
-}
 
-@keyframes rotating {
+@keyframes autoRun {
   from {
-    transform: rotateX(-15deg) rotateY(0);
+      transform: rotateX(-15deg) rotateY(0deg);
   }
   to {
-    transform: rotateX(-15deg) rotateY(1turn);
+      transform: rotateX(-15deg) rotateY(360deg);
   }
 }
 
-.card {
-  position: absolute;
-  width: 120px;
-  height: 180px;
-  border-radius: var(--glass-border-radius);
-  transition: transform 0.5s ease;
-  backdrop-filter: var(--glass-backdrop-filter);
-  background-color: var(--glass-bg);
-  border-radius: var(--glass-border-radius);
-  border: var(--glass-border);
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  transform-style: preserve-3d;
-}
-
-
-
-.ul-card-show {
-  display: block;
-}
-
-.ul-card {
+.display-none {
   display: none;
 }
 
-
-
-
-/* Card-specific positioning and colors */
-
-.one {
-  transform: rotateY(calc((360deg / 10) * 0)) translateZ(250px);
+.display-flex {
+  display: block;
+  line-height: 10px;
+  font-size: 8px;
 }
-.two {
-  transform: rotateY(calc((360deg / 10) * 1)) translateZ(250px);
-}
-.three {
-  transform: rotateY(calc((360deg / 10) * 2)) translateZ(250px);
-}
-.four {
-  transform: rotateY(calc((360deg / 10) * 3)) translateZ(250px);
-}
-.five {
-  transform: rotateY(calc((360deg / 10) * 4)) translateZ(250px);
-}
-.six {
-  transform: rotateY(calc((360deg / 10) * 5)) translateZ(250px);
-}
-.seven {
-  transform: rotateY(calc((360deg / 10) * 6)) translateZ(250px);
-}
-.eight {
-  transform: rotateY(calc((360deg / 10) * 7)) translateZ(250px);
-}
-.nine {
-  transform: rotateY(calc((360deg / 10) * 8)) translateZ(250px);
-}
-.ten {
-  transform: rotateY(calc((360deg / 10) * 9)) translateZ(250px);
-}
-
-
-
-
-
-
 
 
 
