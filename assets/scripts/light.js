@@ -15,9 +15,9 @@ function update(e){
 
     light.style.background = "radial-gradient(circle 10vmax at var(--cursorX) var(--cursorY),rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 80%, rgba(0,0,0,.95) 100%)";
 
-    setTimeout(() => {
-        light.style.background = "black";
-    }, 3000);
+    // setTimeout(() => {
+    //     light.style.background = "black";
+    // }, 3000);
 
   }
   

@@ -423,14 +423,14 @@ main > * {
     top: 10%;
     left: calc(54% - 100px);
     transform-style: preserve-3d;
-    animation: autoRun 20s infinite linear;
+    animation: autoRun 15s infinite linear;
 
     .item {
         position: absolute;
         inset: 0 0 0 0;
         transform: rotateY(calc((360deg / var(--quantity)) * var(--position))) translateZ(250px);
         border-radius: var(--glass-border-radius);
-        transition: transform 0.5s ease;
+        transition: transform .5s ease;
         backdrop-filter: var(--glass-backdrop-filter);
         background-color: var(--glass-bg);
         border-radius: var(--glass-border-radius);
@@ -438,11 +438,13 @@ main > * {
         display: flex;
         align-items: center;
         padding: 0 10px;
-        will-change: transform;
+        will-change: auto;
         perspective: 1px;
+        
         ul {
           transform: perspective(1px) translateZ(0);
           backface-visibility: hidden; 
+          height: 80%;
       }
     }
   }
@@ -559,12 +561,12 @@ main > * {
    box-shadow: var(--hover-bxs-btn);
    background-size: cover;
    transition: all 0.2s ease;
-   background-image: url('../img/projects/1.png');
+   background-image: url('../img/projects/calculatore.png');
    animation: border-transform 6s linear infinite alternate forwards;
    animation-play-state: paused;
  }
  .checkbox.scnd + label{
-   background-image: url('../img/pexels-steve-29586672.jpg');
+   background-image: url('../img/projects/1.png');
  }
  .checkbox.thrd + label{
    background-image: url('../img/pexels-steve-14003554.jpg');
@@ -717,15 +719,15 @@ footer {
 }
 
 
-.menu {
+.btn-nav-menu {
   visibility: hidden;
   border-radius: var(--radius-inside);
   background: transparent;
 }
 
-.menu span, 
-.menu span::before, 
-.menu span::after {
+.btn-nav-menu span, 
+.btn-nav-menu span::before, 
+.btn-nav-menu span::after {
   content: "";
   width: 2rem;
   height: 0.2rem;
@@ -736,30 +738,30 @@ footer {
   display: block;
 }
 
-.menu span::before {
+.btn-nav-menu span::before {
   position: absolute;
   top: -0.5rem;
 }
 
-.menu span::after {
+.btn-nav-menu span::after {
   position: absolute;
   top: 0.5rem;
 }
 
-.menu.active span {
+.btn-nav-menu.active span {
   background: transparent;
 }
 
-.menu.active span::before,
-.menu.active span::after {
+.btn-nav-menu.active span::before,
+.btn-nav-menu.active span::after {
   top: 0;
 }
 
-.menu.active span::before {
+.btn-nav-menu.active span::before {
   transform: rotate(45deg);
 }
 
-.menu.active span::after {
+.btn-nav-menu.active span::after {
   transform: rotate(-45deg);
 }
 
@@ -779,7 +781,7 @@ footer {
     justify-content: space-between;
     padding: 0 1.5rem;
   }
-  .menu {
+  .btn-nav-menu {
     visibility: visible;
   }
   .nav {
@@ -790,7 +792,6 @@ footer {
     top: 100%;
     right: 0;
     left: 0;
-    transition: all 30s ease-in;
     height: 40vh;
     gap: 10;
   }

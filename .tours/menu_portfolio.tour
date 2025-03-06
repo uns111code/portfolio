@@ -1,0 +1,12 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "menu_portfolio",
+  "steps": [
+    {
+      "file": "assets/scripts/menu.js",
+      "description": "mes variables",
+      "line": 1
+    }
+  ],
+  "ref": "darkmodeV3"
+}

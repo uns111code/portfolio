@@ -23,10 +23,7 @@ items.forEach((item) => {
   item.addEventListener("mouseenter", () => {
     // Move the item closer and scale it up
     item.style.transform = `${item.dataset.originalTransform} translateZ(100px) translateY(-80px) scale(1.4)`;
-    // item.style.fontSize = "32px"; // Increase font size for better readability
-    // item.style.zIndex = "10";
-    // item.style.filter = "none"; // Ensure no blur is applied
-    // item.style.willChange = "transform, font-size"; // Optimize rendering
+    
   });
 
   item.addEventListener("mouseleave", () => {
@@ -46,9 +43,13 @@ items.forEach((item) => {
 
     items.forEach((item) => {
     item.addEventListener("click", (e) => {
-      item.style.transform = 'rotate3d(1, 1, 1, 180deg)';
+      item.style.transform = `${item.dataset.originalTransform} translateZ(100px) translateY(-80px) scale(1.4) rotateY(360deg)`;
       e.currentTarget.querySelector("img").classList.toggle("display-none");
       e.currentTarget.querySelector("ul").classList.toggle("display-flex");
+      e.currentTarget.querySelector("ul").style.fontSize = "10px"; // Increase font size for better readability
+      e.currentTarget.querySelector("ul").style.zIndex = "10";
+      e.currentTarget.querySelector("ul").style.filter = "none"; // Ensure no blur is applied
+      e.currentTarget.querySelector("ul").style.willChange = "transform, font-size"; // Optimize rendering
     });
     }
     );
