@@ -53,6 +53,8 @@
 /*************************** light ************************************/
 --cursorX: 50vw;
 --cursorY: 50vh;
+--scroll: 2vw;
+--star: 100px;
 }
 
 
@@ -113,11 +115,20 @@ header {
   justify-content: space-around;
   align-items: center;
   position: fixed;
-  width: 100vw;
+  width: 70vw;
+  min-width: max-content;
   height: 6rem;
   z-index: 9999;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: var(--glass-bg);
+  border-radius: var(--glass-border-radius);
+  transition: transform .5s ease;
+  backdrop-filter: var(--glass-backdrop-filter);
+  background-color: var(--glass-bg);
+  border-radius: 0 0 12px 12px;;
+  border: var(--glass-border);
 }
 
 .logo-section {
@@ -216,7 +227,8 @@ aside {
   grid-column: 1 span;
   grid-row: 1 span;
   z-index: 9999;
-  top: calc(50% - 100px);
+  top: 60%;
+  left: 1%;
 }
 
 /***section class="buttons"***/
@@ -224,6 +236,12 @@ aside {
 .aside-buttons {
   position: relative;       /* to apply posittion absolute on .button */
   padding: 5rem 5rem 5rem 1rem;          /* increasing hover area effect */
+  opacity: .2;
+  transition: opacity 1s ease;
+}
+
+.aside-buttons:hover {
+  opacity: 1;
 }
 
 
@@ -346,7 +364,7 @@ main {
 /************************************ accueil ************************************/
 
 .accueil {
-  height: 40vh;
+  height: max-content;
   border-radius: var(--radius-inside); 
   display: flex;
   flex-direction: column;
@@ -373,7 +391,7 @@ h2 {
 
 main > * {
   font-size: 20px;
-  max-width: 70vw;
+  width: clamp(250px, 70vw, 90%);
   line-height: 32px;
   background-color: transparent;
   border-radius: var(--radius-inside);
@@ -411,7 +429,7 @@ main > * {
 
 .banner {
   margin-top: 10rem;
-  height: 40vh;
+  height: max-content;
   text-align: center;
   position: relative;
   perspective: 1000px;   /* if you use perspective here then you don't need to use it in animation*/
@@ -503,6 +521,7 @@ main > * {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -5;
+  box-sizing: unset;
   padding: 10px;
   border-radius: var(--radius-inside);
   animation: 3s spin linear infinite;
@@ -510,7 +529,8 @@ main > * {
 
 .pics::before {
   filter: blur(1.5rem);
-  opacity: 0.5;
+  opacity: 1;
+  z-index: -6;
 }
 
 .catag {
@@ -653,21 +673,24 @@ main > * {
 }
 
 .form input, .form textarea {
-  border-radius: 5px;
-  border: none;
   height: 2.5rem;
   padding: 0px 45px;
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: right;
   background-position-x: 12px;
-  color: var(--background-color);
+  background-color: var(--glass-bg);
+  border: var(--glass-border);
+  border-radius: 6px;
+  color: var(--font-color-1);
 }
+
 .form input:focus, .form textarea:focus {
-  border: 5px solid var(--tertiary);
+  border: var(--glass-border);
   box-shadow: var(--hover-bxs-btn);
   background-color: var(--background-color);
   color: var(--font-color-1);
+  font-size: 1.2rem;
 }
 
 #name {
@@ -768,9 +791,6 @@ footer {
 
 
 @media screen and (max-width: 768px) {
-  aside {
-    top: 75vh;
-  }
 
   main {
     overflow-x: hidden;
@@ -891,7 +911,7 @@ footer {
   height: 100%;
   position: fixed;
   pointer-events: none;
-  background: black;
+  background: radial-gradient(circle var(--scroll) at var(--cursorX) var(--cursorY),rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 80%, rgba(0,0,0,.95) 100%);
 }
 .el {
   position:fixed;
@@ -900,8 +920,8 @@ footer {
   width: 100vw;
   height: 100vh;
   mask:
-    radial-gradient(circle at 50% 50%, rgb(241, 2, 2) 2px, transparent 2.5px) 50% 50% / 20px 20px,
-    url("https://assets.codepen.io/605876/noise-mask.png");
+    radial-gradient(circle at 50% 50%, rgb(241, 2, 2) 2px, transparent 2.5px) 50% 50% / var(--star) var(--star),
+    url("../img/noise-mask.webp");
   mask-composite: intersect;
   animation: flicker 20s infinite linear;
   z-index: -1;
