@@ -32,13 +32,8 @@ items.forEach((item) => {
     item.style.fontSize = item.dataset.originalFontSize;
     item.querySelector("ul").classList.remove("display-flex");
     item.querySelector("img").classList.remove("display-none");
-    // item.style.zIndex = "1";
-    // item.style.filter = "none";
-    // item.style.willChange = "auto";
   });
   // Add a click event to apear the content
-    
-  
 });
 
     items.forEach((item) => {

@@ -6,11 +6,11 @@
   --bg-color-2: rgb(29, 31, 45);
   --bg-color-3: rgb(68, 68, 68);
   --font-color-1: #EDEDED;
-  --text-shadow: rgb(114, 62, 62);
+  --text-shadow: 5px 5px 5px rgb(114, 62, 62);
   --tertiary: red;
-  --transition: all 0.5s ease-in-out;
+  --transition: all 0.3s ease-in-out;
   --radius-100: 100px;
-  --transition: all 0.3s ease;
+  /* --transition: all 0.3s ease; */
   --box-shadow-btn:inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.01),
                    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.034),
                    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.1),
@@ -48,11 +48,11 @@
 --glass-border-radius: 12px;
 --glass-border: 1px solid rgba(209, 213, 219, 0.3);
 
-/*************************** light ************************************/
+/*************************** stars ************************************/
 --cursorX: 50vw;
 --cursorY: 50vh;
 --scroll: 2vw;
---star: 100px;
+--star: 80px;
 }
 
 
@@ -156,7 +156,7 @@ header {
   transform: translate(-50%, 0);
   background: var(--glass-bg);
   border-radius: var(--glass-border-radius);
-  transition: transform .5s ease;
+  transition: var(--transition);
   backdrop-filter: var(--glass-backdrop-filter);
   background-color: var(--glass-bg);
   border-radius: 0 0 12px 12px;;
@@ -168,10 +168,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.profil .logo-section {
-  height: 20rem;
 }
 
 .logo{
@@ -269,7 +265,7 @@ aside {
   position: relative;       /* to apply posittion absolute on .button */
   padding: 5rem 5rem 5rem 1rem;          /* increasing hover area effect */
   opacity: .2;
-  transition: opacity 1s ease;
+  transition: all 2s ease;
 }
 
 .aside-buttons:hover {
@@ -404,10 +400,65 @@ main {
   gap: 1.2rem;  
 }
 
+.profil .logo-section {
+  width: 15rem;
+  height: 15rem;
+  margin: 5rem 0;
+  align-items: center;
+  justify-self: center;
+  background-color: var(--background-color);
+  position: relative;
+}
+ 
+ 
+ .profil .logo-section::after, .profil .logo-section::before {
+   content: '';
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   background-image: conic-gradient(from var(--angle) ,transparent 30%, var(--tertiary));
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: -15;
+   box-sizing: unset;
+   padding: 10px;
+   border-radius: var(--radius-inside);
+   animation: 3s spin linear infinite;
+ }
+ 
+ .profil .logo-section::before {
+   filter: blur(1.5rem);
+   opacity: 1;
+   z-index: -6;
+ }
+
+ @property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+ 
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+
+
+
+
+
+
 .profil .accueil h1, h2 {
   font-size: 50px;
   color: var(--tertiary);
-  text-shadow: 5px 5px 5px var(--text-shadow);
+  text-shadow: var(--text-shadow);
   line-height: 3rem;
 }
 
@@ -456,7 +507,7 @@ main > * {
         inset: 0 0 0 0;
         transform: rotateY(calc((360deg / var(--quantity)) * var(--position))) translateZ(250px);
         border-radius: var(--glass-border-radius);
-        transition: transform .5s ease;
+        transition: all .5s ease-in-out;
         backdrop-filter: var(--glass-backdrop-filter);
         background-color: var(--glass-bg);
         border-radius: var(--glass-border-radius);
@@ -509,9 +560,6 @@ main > * {
   width: 70vw;
   overflow: auto;
   padding: 100px;
-  /* box-sizing: border-box; */
-  /* backdrop-filter: blur(10px); */
-  background-color: rgb(0, 0, 0);
   border-radius: 20px;
   mask-image: linear-gradient(to right, transparent 0%, black 40%, black 40%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%, black 40%, transparent 100%);
@@ -527,18 +575,7 @@ main > * {
   --left: 0;
   transform: translateX(var(--left));
 }
-/* .title{
-  padding: 20px 0;
-  color: #fff;
-  text-shadow: 0 0 10px #0007;
-  font-weight: 500;
-  font-size: large;
-} */
-/* .title button{
-  border-radius: 20px;
-  border: none;
-  font-family: system-ui;
-} */
+
 .slider-portfolio .form-portfolio .item-portfolio{
   width: 200px;
   height: 400px;
@@ -547,50 +584,51 @@ main > * {
   transform: perspective(10px);
   transform-style: preserve-3d;
 }
+
 .item-portfolio .content{
   width: 100%;
   height: 100%;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  transition: transform .5s;
+  transition: var(--transition);
+  color: var(--font-color-1); 
 }
-.content .des{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  backdrop-filter: blur(10px);
-  color: #fff;
-  font-family: monospace;
-  display: flex;
-  justify-content:space-between;
-  align-items: center;
-  padding: 10px;
-  box-sizing: border-box;
-}
-/* .des button{
-  background-color: #eee;
-  border: none;
-  border-radius: 10px;
-  font-size: small;
-} */
-.slider-portfolio .form-portfolio.left .item-portfolio .content{
-  transform: rotateY(-1deg) scale(0.8);
-}
-.slider-portfolio .form-portfolio.right .item-portfolio .content{
-  transform: rotateY(1deg) scale(0.8);
-}
+
 .item-portfolio img{
   width: 100%;
   height: 100%;
   object-fit: fill;
 }
 
+.content .des{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  backdrop-filter: blur(2px);
+  font-family: monospace;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: var(--transition);
+}
+
+.slider-portfolio .form-portfolio.left .item-portfolio .content{
+  transform: rotateY(-1deg) scale(0.8);
+}
+.slider-portfolio .form-portfolio.right .item-portfolio .content{
+  transform: rotateY(1deg) scale(0.8);
+}
+
 
 .item-portfolio .content:hover {
   transform: translateY(-20px);
+  box-shadow: 5px 5px 5px 5px red;
+  text-shadow: var(--text-shadow);
 }
  
 
@@ -669,13 +707,72 @@ main > * {
 }
 
 
+/******************************************************************* cursor  ******************************************/
+
+
+/* Conteneur dédié aux traînées */
+#trails-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Empêche de bloquer les interactions */
+}
 
 
 
+.trace {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: red;
+  box-shadow: var(--box-shadow-btn);
+  animation: fadeOut .5s linear forwards;
+  pointer-events: none; /* Empêche d’interférer avec les éléments */
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+      transform: scale(1);
+  }
+  to {
+      opacity: 0;
+      transform: scale(10);
+  }
+}
 
 
+/*************************************************************** stars ******************************************/
 
-
+.stars {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  pointer-events: none;
+  background: radial-gradient(circle var(--scroll) at var(--cursorX) var(--cursorY),rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 80%, rgba(0,0,0,.95) 100%);
+}
+.el {
+  position:fixed;
+  top: 0;
+  background: red;
+  width: 100vw;
+  height: 100vh;
+  mask:
+    radial-gradient(circle at 50% 50%, rgb(241, 2, 2) 2px, transparent 2.5px) 50% 50% / var(--star) var(--star),
+    url("../img/noise-mask.webp");
+  mask-composite: intersect;
+  animation: flicker 20s infinite linear;
+  z-index: -1;
+}
+@keyframes flicker {
+  to {
+    mask-position: 50% 50%, 0 50%;
+  }
+}
 
 
 
@@ -685,6 +782,7 @@ footer {
   text-align: center;
 }
 
+/************************************************************************* Mobile Devices ****************************************************************/
 
 .btn-nav-menu {
   visibility: hidden;
@@ -701,7 +799,7 @@ footer {
   background-color: var(--tertiary);
   position: relative;
   border-radius: var(--radius-inside);
-  transition: all 0.3s ease-in;
+  transition: var(--transition);
   display: block;
 }
 
@@ -778,326 +876,10 @@ footer {
       left: calc(54% - 60px);  
       }
     }
+
+    button {
+      transition: all 0.1s ease-in-out;
+    }
   
   
 }
-
-
-/******************************************************************* cursor  ******************************************/
-
-
-/* Conteneur dédié aux traînées */
-#trails-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none; /* Empêche de bloquer les interactions */
-}
-
-
-
-.trace {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: red;
-  box-shadow: var(--box-shadow-btn);
-  animation: fadeOut .5s linear forwards;
-  pointer-events: none; /* Empêche d’interférer avec les éléments */
-}
-
-@keyframes fadeOut {
-  from {
-      opacity: 1;
-      transform: scale(1);
-  }
-  to {
-      opacity: 0;
-      transform: scale(10);
-  }
-}
-
-
-/*************************************************************** light ******************************************/
-
-.light {
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  pointer-events: none;
-  background: radial-gradient(circle var(--scroll) at var(--cursorX) var(--cursorY),rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 80%, rgba(0,0,0,.95) 100%);
-}
-.el {
-  position:fixed;
-  top: 0;
-  background: red;
-  width: 100vw;
-  height: 100vh;
-  mask:
-    radial-gradient(circle at 50% 50%, rgb(241, 2, 2) 2px, transparent 2.5px) 50% 50% / var(--star) var(--star),
-    url("../img/noise-mask.webp");
-  mask-composite: intersect;
-  animation: flicker 20s infinite linear;
-  z-index: -1;
-}
-@keyframes flicker {
-  to {
-    mask-position: 50% 50%, 0 50%;
-  }
-}
-
-
-
-
-
-
-
-
-/* .projects {
-  display: flex;
-  flex-wrap: wrap-reverse;
-  row-gap: 5rem;
-  column-gap: .5%;
-  justify-content: center;
-}
-
-
-.pics{
- position: relative;    /* -+ */
- /*
-}
-
-
-.pics::after, .pics::before {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-image: conic-gradient(from var(--angle) ,transparent 30%, var(--tertiary));
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -5;
-  box-sizing: unset;
-  padding: 10px;
-  border-radius: var(--radius-inside);
-  animation: 3s spin linear infinite;
-}
-
-.pics::before {
-  filter: blur(1.5rem);
-  opacity: 1;
-  z-index: -6;
-}
-
- @property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
- 
-@keyframes spin {
-  from {
-    --angle: 0deg;
-  }
-  to {
-    --angle: 360deg;
-  }
-} */
-
-
-
-
-
-
-
-
-
-/* .catag {
-  border-radius: var(--glass-border-radius);
-  display: none;
-  transition: all 0.5s ease;
-  position: relative;
-  width: 70vw;
-  justify-content: space-around;
-  align-items: center;
-  background-color: var(--background-color);
-  padding: 2rem 0;
-}
-
-
-.btn-slider {
-  background: transparent;
-  padding: 30px 40px;
-  color: var(--font-color-1);
-  border-radius: var(--radius-100);
-}
-.btn-slider:hover {
-  box-shadow: var(--hover-bxs-btn);
-}
-.btn-slider:active {
-  box-shadow: var(--active-bxs-btn);
-}
-
-.fa-chevron-right, .fa-chevron-left {
-  font-size: 3rem;
-  transition: transform 0.2s ease;
-}
-
-
-
- [type="radio"]:checked,
- [type="radio"]:not(:checked){
-   position: absolute;
-   left: -9999px;
- }
- .checkbox:checked + label,
- .checkbox:not(:checked) + label{
-   cursor: pointer;
-   margin: 0 0.5rem;
-   display: inline-block;
-   width: 3rem;
-   height: 3rem;
-   box-shadow: var(--hover-bxs-btn);
-   background-size: cover;
-   transition: all 0.2s ease;
-   background-image: url('../img/projects/calculatore.png');
-   animation: border-transform 6s linear infinite alternate forwards;
-   animation-play-state: paused;
- }
- .checkbox.scnd + label{
-   background-image: url('../img/projects/1.png');
- }
- .checkbox.thrd + label{
-   background-image: url('../img/pexels-steve-14003554.jpg');
- }
- .checkbox.foth + label{
-   background-image: url('../img/pexels-steve-12913152.jpg');
- }
- 
- .checkbox:checked + label{
-   box-shadow: var(--active-bxs-btn);
-   transform: scale(1.3);
-   animation-play-state: running;
- }
- @keyframes border-transform{
-   0%,100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; } 
-   14% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 
-   28% { border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; } 
-   42% { border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; } 
-   56% { border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%; } 
-   70% { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; } 
-   84% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; } 
- }
- 
-
- .checkbox.frst:checked ~ .pics .catag:nth-child(1) {
-   display: flex;
- }
- .checkbox.scnd:checked ~ .pics .catag:nth-child(2) {
-  display: flex;
- }
- .checkbox.thrd:checked ~ .pics .catag:nth-child(3) {
-  display: flex;
- }
- .checkbox.foth:checked ~ .pics .catag:nth-child(4) {
-  display: flex;
- } */
-
-
-
-
-
-
-
-
-
-
-  /* mobile .catag {
-    height: 50vh;
-    position: relative;
-    padding: 0;
-  }
-
-  .catag img {
-    height: 100%;
-    width: 100%;
-  }
-
-  .btn-slider {
-    position: absolute;
-  }
-  .btn-slider:first-child {
-    left: -2.2rem;
-  }
-  .btn-slider:last-child {
-    right: -2.2rem;
-  }
-  .btn-slider:active{
-    box-shadow: none;
-  }
-  .btn-slider:hover {
-    box-shadow: none;
-    color: var(--tertiary);
-  } */
-
-
-
-
-
-
-
-
-
-  
-/* .slider-portfolio{
-  position: relative;    /* -+ */
-  /*
- }
- 
- 
- .slider-portfolio::after, .slider-portfolio::before {
-   content: '';
-   position: absolute;
-   height: 100%;
-   width: 100%;
-   background-image: conic-gradient(from var(--angle) ,transparent 30%, var(--tertiary));
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   z-index: -5;
-   box-sizing: unset;
-   padding: 10px;
-   border-radius: 12px;
-   animation: 3s spin linear infinite;
- }
- 
- .slider-portfolio::before {
-   filter: blur(1.5rem);
-   opacity: 1;
-   z-index: -6;
- }
- 
-  @property --angle {
-   syntax: "<angle>";
-   initial-value: 0deg;
-   inherits: false;
- }
- 
-  
- @keyframes spin {
-   from {
-     --angle: 0deg;
-   }
-   to {
-     --angle: 360deg;
-   }
- } */
- 
-
-
