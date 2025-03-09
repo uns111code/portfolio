@@ -259,7 +259,7 @@ aside {
   grid-column: 1 span;
   grid-row: 1 span;
   z-index: 9999;
-  top: 60%;
+  top: 70%;
   left: 1%;
 }
 
@@ -463,10 +463,10 @@ main > * {
         border: var(--glass-border);
         display: flex;
         align-items: center;
-        padding: 0 10px;
+        padding: 0 4px;
         will-change: auto;
         perspective: 1px;
-        
+
         ul {
           transform: perspective(1px) translateZ(0);
           backface-visibility: hidden; 
@@ -594,54 +594,6 @@ main > * {
 }
  
 
-/* .slider-portfolio{
-  position: relative;    /* -+ */
-  /*
- }
- 
- 
- .slider-portfolio::after, .slider-portfolio::before {
-   content: '';
-   position: absolute;
-   height: 100%;
-   width: 100%;
-   background-image: conic-gradient(from var(--angle) ,transparent 30%, var(--tertiary));
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   z-index: -5;
-   box-sizing: unset;
-   padding: 10px;
-   border-radius: 12px;
-   animation: 3s spin linear infinite;
- }
- 
- .slider-portfolio::before {
-   filter: blur(1.5rem);
-   opacity: 1;
-   z-index: -6;
- }
- 
-  @property --angle {
-   syntax: "<angle>";
-   initial-value: 0deg;
-   inherits: false;
- }
- 
-  
- @keyframes spin {
-   from {
-     --angle: 0deg;
-   }
-   to {
-     --angle: 360deg;
-   }
- } */
- 
-
-
-
-
 
 
 /*******************************************contact ********************************************************/
@@ -694,7 +646,7 @@ main > * {
 #phone {
   background-image: url(../img/icons/phone-solid.svg);
 }
-#mail {
+#email {
   background-image: url(../img/icons/at-solid.svg);
 }
 #message {
@@ -798,14 +750,13 @@ footer {
   }
   .nav {
     display: none;
-    background-color: var(--background-color);
+    background-color: black !important;
     flex-direction: column;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 1.5rem);
     right: 0;
     left: 0;
-    height: 40vh;
-    gap: 10;
+    height: max-content;
   }
   .show-nav{
     display: flex;
@@ -821,39 +772,14 @@ footer {
     width: 100%;
   }
 
-  .competence {
-    width: 99vw;
-    left: -70px;
-  }
+  .banner {
+    transform: rotateY(50deg);
+    .slider {
+      left: calc(54% - 60px);  
+      }
+    }
   
-
-  /* .catag {
-    height: 50vh;
-    position: relative;
-    padding: 0;
-  }
-
-  .catag img {
-    height: 100%;
-    width: 100%;
-  }
-
-  .btn-slider {
-    position: absolute;
-  }
-  .btn-slider:first-child {
-    left: -2.2rem;
-  }
-  .btn-slider:last-child {
-    right: -2.2rem;
-  }
-  .btn-slider:active{
-    box-shadow: none;
-  }
-  .btn-slider:hover {
-    box-shadow: none;
-    color: var(--tertiary);
-  } */
+  
 }
 
 
@@ -1089,5 +1015,89 @@ footer {
 
 
 
+
+
+
+  /* mobile .catag {
+    height: 50vh;
+    position: relative;
+    padding: 0;
+  }
+
+  .catag img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .btn-slider {
+    position: absolute;
+  }
+  .btn-slider:first-child {
+    left: -2.2rem;
+  }
+  .btn-slider:last-child {
+    right: -2.2rem;
+  }
+  .btn-slider:active{
+    box-shadow: none;
+  }
+  .btn-slider:hover {
+    box-shadow: none;
+    color: var(--tertiary);
+  } */
+
+
+
+
+
+
+
+
+
+  
+/* .slider-portfolio{
+  position: relative;    /* -+ */
+  /*
+ }
+ 
+ 
+ .slider-portfolio::after, .slider-portfolio::before {
+   content: '';
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   background-image: conic-gradient(from var(--angle) ,transparent 30%, var(--tertiary));
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: -5;
+   box-sizing: unset;
+   padding: 10px;
+   border-radius: 12px;
+   animation: 3s spin linear infinite;
+ }
+ 
+ .slider-portfolio::before {
+   filter: blur(1.5rem);
+   opacity: 1;
+   z-index: -6;
+ }
+ 
+  @property --angle {
+   syntax: "<angle>";
+   initial-value: 0deg;
+   inherits: false;
+ }
+ 
+  
+ @keyframes spin {
+   from {
+     --angle: 0deg;
+   }
+   to {
+     --angle: 360deg;
+   }
+ } */
+ 
 
 
