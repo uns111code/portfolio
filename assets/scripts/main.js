@@ -20,15 +20,7 @@ window.addEventListener("scroll", () => {
 
 });
 
-
-
-
-
 /********************************************************** mobile *********************************************/
-
-
-
-
 
 const navbar = document.querySelector('.nav');;
 const btnMenu = document.querySelector('.btn-nav-menu');
@@ -38,7 +30,6 @@ btnMenu.addEventListener('click', (event) => {
     event.currentTarget.classList.toggle('active');
     navbar.classList.toggle('show-nav');
 });
-
 
 const mainButton = document.querySelectorAll('.main-button');
 
@@ -50,13 +41,7 @@ mainButton.forEach(button => {
 });
 });
 
-
-
-
 /******************************************************** shining stars ***************************************/
-
-
-
 
 let stars = document.querySelector('.stars');
 document.addEventListener("scroll", () => {

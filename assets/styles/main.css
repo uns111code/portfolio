@@ -1,6 +1,4 @@
-
 /* variable */
-
 :root {
   --background-color: black;
   --bg-color-2: rgb(29, 31, 45);
@@ -833,11 +831,9 @@ footer {
 
 
 @media screen and (max-width: 768px) {
-
   main {
     overflow-x: hidden;
   }
-
   header {
     position: relative;
     justify-content: space-between;
@@ -859,7 +855,6 @@ footer {
   .show-nav{
     display: flex;
   }
- 
   .form  {
     display: flex;
     flex-direction: column;
@@ -869,17 +864,13 @@ footer {
   #message {
     width: 100%;
   }
-
   .banner {
     transform: rotateY(50deg);
     .slider {
       left: calc(54% - 60px);  
       }
     }
-
     button {
       transition: all 0.1s ease-in-out;
     }
-  
-  
 }
